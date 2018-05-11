@@ -14,19 +14,16 @@
 ## 预备！
 
 	1.安装HomeBrew
-	 	打开终端Terminal，输入如下命令，自动安装HomeBrew。	
+	 	打开终端Terminal，输入如下命令，自动安装HomeBrew。安装完毕后可输入 `brew --version` 检测，若提示 Homebrew 1.6.3 则表明安装正确。
 ```shell
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
-		安装完毕后可输入 `brew --version` 检测，若提示 Homebrew 1.6.3 则表明安装正确。
-		
-		
+
 	2.安装Aircrack-ng
-		 第一步完成后，在终端中输入如下命令，进行安装。 
+		 第一步完成后，在终端中输入如下命令，进行安装。安装完毕后可输入 `aircrack-ng` 检测，若提示一系列关于Aircrack-ng的版本信息以及命令选项，则表明安装正确。
 ```shell 
 brew install aircrack-ng 
 ``` 
-		 安装完毕后可输入 `aircrack-ng` 检测，若提示一系列关于Aircrack-ng的版本信息以及命令选项，则表明安装正确。
 		 
 ## 开始！
 	
