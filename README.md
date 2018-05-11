@@ -43,7 +43,7 @@ brew install aircrack-ng
 
 点屏幕左上角点小苹果->关于本机->系统报告，找到图中所示，Wi-Fi网卡，记住网卡的BSD设备名称，也就是`en0` `en1`之类的那些。
 
-![截图1](https://raw.githubusercontent.com/Get_Wifi_Password_On_MacOS/master/Screenshots/S1.png)
+![截图1](https://raw.githubusercontent.com/ZoraZora59/Get_Wifi_Password_On_MacOS/master/Screenshots/S1.png)
 
 2.启动终端，输入下列命令，探测周围的Wi-Fi信号。
 ```shell
