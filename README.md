@@ -31,7 +31,8 @@ brew install aircrack-ng
 
 作者所用的密码字典是网上的前辈帖子发到帖子里的，当然可以用其他字典替换。
 
-[精简版字典 约700M]（http://pan.baidu.com/s/1o7MCcHk) 
+[精简版字典 约700M](http://pan.baidu.com/s/1o7MCcHk) 
+
 [完善版字典 约15G](http://pan.baidu.com/s/1clxaCA)
 
 ## 开始！
