@@ -1,5 +1,5 @@
 # 通过Aircrack-ng获取Wifi密码-
-在MacOS上，利用Aircrack-ng工具获取附近可见wifi的明文密码
+在MacOS上，利用Aircrack-ng工具通过跑字典方式获取附近可见wifi的明文密码
 
 所需工具：
 
