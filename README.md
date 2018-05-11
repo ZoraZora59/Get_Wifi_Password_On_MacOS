@@ -33,12 +33,12 @@ brew install aircrack-ng
 
 点屏幕左上角点小苹果->关于本机->系统报告，找到图中所示，Wi-Fi网卡，记住网卡的BSD设备名称，也就是`en0` `en1`之类的那些。
 
-![截图1](https://raw.githubusercontent.com/ZoraZora59/-Aircrack-ng-Wifi-/master/Screenshots/P1.png)
+![截图1](https://raw.githubusercontent.com/ZoraZora59/-Aircrack-ng-Wifi-/master/Screenshots/S1.png)
 
 2.启动终端，输入下列命令，探测周围的Wi-Fi信号。
 ```shell
 /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -s
 ```
-![截图2](https://raw.githubusercontent.com/ZoraZora59/-Aircrack-ng-Wifi-/master/Screenshots/P2.png)
+![截图2](https://raw.githubusercontent.com/ZoraZora59/-Aircrack-ng-Wifi-/master/Screenshots/S2.png)
 
 图中`SSID`为Wifi名称，`BSSID`为路由器的MAC地址，`RSSI`为信号强度（这个怎么算的···好像要弄懂信噪比的概念，与破解无关，暂时不管，可以通过点屏幕右上角的Wi-Fi标志看信号强弱嘛🤪），`CHANNEL`是该Wi-Fi所用信道，`SECURITY`是该Wi-Fi的加密方式（现在主流加密方式是WPA2，所以我们针对WPA2进行破解）。
