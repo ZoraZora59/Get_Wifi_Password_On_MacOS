@@ -57,4 +57,41 @@ brew install aircrack-ng
 
 图中`SSID`为Wifi名称，`BSSID`为路由器的MAC地址，`RSSI`为信号强度（这个怎么算的···好像要弄懂信噪比的概念，与破解无关，暂时不管，可以通过点屏幕右上角的Wi-Fi标志看信号强弱嘛🤪），`CHANNEL`是该Wi-Fi所用信道，`SECURITY`是该Wi-Fi的加密方式（现在主流加密方式是WPA2，所以我们针对WPA2进行破解）。
 
-### TODO：探测握手包，开始破解。
+3.在终端中输入下列命令，监听路由器信道，等待获取握手包
+```shell
+sudo /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport en0 sniff 10
+```
+![截图3](https://raw.githubusercontent.com/ZoraZora59/Get_Wifi_Password_On_MacOS/master/Screenshots/S3.png)
+
+尽可能选在用户大批连接前开始监听，不然可能会耗费漫长的时间监听到一大堆没用的数据。（这一步可以通过欺骗包方法使用户端误以为路由器重启，从而快速获得握手包。具体方法作者正在研究大佬的博客）
+
+4.等了很久！看看监听的怎么样了！`CTRL+C`快捷键中断监听，在终端里输入`cd /tmp`进入tmp目录，监听到的包就放在这里，文件名为`airportSniff******.cap`（就是下图中框起来的那个）😈
+
+![截图4](https://raw.githubusercontent.com/ZoraZora59/Get_Wifi_Password_On_MacOS/master/Screenshots/S4.png)
+
+在终端中输入命令对监听包进行分析，看看里面有没有握手包（作者的包是airportSniffxxxxxx.cap，需要自行更改为自己监听到的包名）
+```sheel
+sudo aircrack-ng   /tmp/airportSniffxxxxxx.cap
+```
+![截图5](https://raw.githubusercontent.com/ZoraZora59/Get_Wifi_Password_On_MacOS/master/Screenshots/S5.png)
+
+如果监听包的内容太多可以用快捷键`Command+F`查找关键字来看。
+
+握手包的标记为`1 handshake`，除此之外的都是无效信息。如果全部内容都没有`1 handshake`，很遗憾，重新回到第三步，继续监听信道->分析->监听信道->分析，直到分析到有握手包标记的监听包。
+
+5.当发现有握手包之后，接下来就是最激(man)动(de)人(yao)心(si)的破解阶段！在终端中输入下列命令，开始对监听包进行密码破解（Hash值比对)。
+```shell
+sudo aircrack-ng -w password.txt -b aa:bb:cc:dd:ee:ff /tmp/airportSniffxxxxxx.cap
+```
+![截图6](https://raw.githubusercontent.com/ZoraZora59/Get_Wifi_Password_On_MacOS/master/Screenshots/S6.png)
+
+这一步默认是由CPU完成的，而CPU本身相对而言不擅长做这种单一的hash计算，擅长做这个的是GPU（原理同显卡挖矿）。可以通过工具将这一步交由GPU来完成，效率会高很多。（不过作者还在研究，做好了会更新的）
+
+6.Finally！密码Hash比对完毕/比对失败！
+
+失败原因非常简单：字典不给力，换个更大更全的吧。或者是设密码的人太变态，弄个`LN&tDIr82!1B`之类的复杂密码，如果是这样的话，放弃吧🤣不然破解到天荒地老。
+
+如果比对成功，程序会进入如下界面，`KEY FOUND ![*]`里面的‘*’就是密码.恭喜获得成功🎉
+###（如果你觉得本项目有帮助，请给本项目一个Star，作者感激不尽！）
+
+
