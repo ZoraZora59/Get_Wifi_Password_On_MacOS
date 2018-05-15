@@ -97,6 +97,6 @@ sudo aircrack-ng -w ~/密码破解字典/crackstation-human-only.txt -b 50:3A:A0
 
 如果比对成功，程序会进入如下界面，`KEY FOUND ![*]`里面的‘*’就是密码.恭喜获得成功🎉
 
-###（如果你觉得本项目有帮助，请给本项目一个Star，作者感激不尽！）
+### （如果你觉得本项目有帮助，请给本项目一个Star，作者感激不尽！）
 
 ![截图8](https://raw.githubusercontent.com/ZoraZora59/Get_Wifi_Password_On_MacOS/master/Screenshots/S8.png)
