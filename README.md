@@ -94,4 +94,4 @@ sudo aircrack-ng -w password.txt -b aa:bb:cc:dd:ee:ff /tmp/airportSniffxxxxxx.ca
 如果比对成功，程序会进入如下界面，`KEY FOUND ![*]`里面的‘*’就是密码.恭喜获得成功🎉
 ###（如果你觉得本项目有帮助，请给本项目一个Star，作者感激不尽！）
 
-
+![截图7](https://raw.githubusercontent.com/ZoraZora59/Get_Wifi_Password_On_MacOS/master/Screenshots/S7.png)
