@@ -59,7 +59,7 @@ brew install aircrack-ng
 
 3.在终端中输入下列命令，监听路由器信道，等待获取握手包
 ```shell
-sudo /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport en0 sniff 10
+sudo /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport en0 sniff 8
 ```
 ![截图3](https://raw.githubusercontent.com/ZoraZora59/Get_Wifi_Password_On_MacOS/master/Screenshots/S3.png)
 
@@ -85,7 +85,7 @@ sudo aircrack-ng -w ~/密码破解字典/crackstation-human-only.txt /tmp/airpor
 
 或者在终端中输入下列命令，开始对监听包进行密码破解（Hash值比对)。
 ```shell
-sudo aircrack-ng -w password.txt -b 50:3A:A0:D2:8C:AE /tmp/airportSniffCrRc8p.cap
+sudo aircrack-ng -w ~/密码破解字典/crackstation-human-only.txt -b 50:3A:A0:D2:8C:AE /tmp/airportSniffCrRc8p.cap
 ```
 ![截图7](https://raw.githubusercontent.com/ZoraZora59/Get_Wifi_Password_On_MacOS/master/Screenshots/S7.png)
 
@@ -96,6 +96,7 @@ sudo aircrack-ng -w password.txt -b 50:3A:A0:D2:8C:AE /tmp/airportSniffCrRc8p.ca
 失败原因非常简单：字典不给力，换个更大更全的吧。或者是设密码的人太变态，弄个`LN&tDIr82!1B`之类的复杂密码，如果是这样的话，放弃吧🤣不然破解到天荒地老。
 
 如果比对成功，程序会进入如下界面，`KEY FOUND ![*]`里面的‘*’就是密码.恭喜获得成功🎉
+
 ###（如果你觉得本项目有帮助，请给本项目一个Star，作者感激不尽！）
 
 ![截图8](https://raw.githubusercontent.com/ZoraZora59/Get_Wifi_Password_On_MacOS/master/Screenshots/S8.png)
