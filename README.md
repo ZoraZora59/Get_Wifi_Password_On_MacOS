@@ -65,13 +65,13 @@ sudo /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Res
 
 尽可能选在用户大批连接前开始监听，不然可能会耗费漫长的时间监听到一大堆没用的数据。（这一步可以通过欺骗包方法使用户端误以为路由器重启，从而快速获得握手包。具体方法作者正在研究大佬的博客）
 
-4.等了很久！看看监听的怎么样了！`CTRL+C`快捷键中断监听，在终端里输入`cd /tmp`进入tmp目录，监听到的包就放在这里，文件名为`airportSniff******.cap`（就是下图中框起来的那个）😈
+4.等了很久！看看监听的怎么样了！`CTRL+C`快捷键中断监听，在终端里输入`cd /tmp`进入tmp目录，输入`ls`显示目录内文件，监听到的包就放在这里，文件名为`airportSniffCrRc8p.cap`（就是下图中框起来的那个）😈
 
 ![截图4](https://raw.githubusercontent.com/ZoraZora59/Get_Wifi_Password_On_MacOS/master/Screenshots/S4.png)
 
-在终端中输入命令对监听包进行分析，看看里面有没有握手包（作者的包是airportSniffxxxxxx.cap，需要自行更改为自己监听到的包名）
+在终端中输入命令对监听包进行分析，看看里面有没有握手包（作者的包是airportSniffCrRc8p.cap，密码字典放在了'密码破解字典'文件夹里，需要自行更改为自己监听到的包名和字典）
 ```sheel
-sudo aircrack-ng   /tmp/airportSniffxxxxxx.cap
+sudo aircrack-ng -w ~/密码破解字典/crackstation-human-only.txt /tmp/airportSniffCrRc8p.cap
 ```
 ![截图5](https://raw.githubusercontent.com/ZoraZora59/Get_Wifi_Password_On_MacOS/master/Screenshots/S5.png)
 
@@ -79,11 +79,15 @@ sudo aircrack-ng   /tmp/airportSniffxxxxxx.cap
 
 握手包的标记为`1 handshake`，除此之外的都是无效信息。如果全部内容都没有`1 handshake`，很遗憾，重新回到第三步，继续监听信道->分析->监听信道->分析，直到分析到有握手包标记的监听包。
 
-5.当发现有握手包之后，接下来就是最激(man)动(de)人(yao)心(si)的破解阶段！在终端中输入下列命令，开始对监听包进行密码破解（Hash值比对)。
-```shell
-sudo aircrack-ng -w password.txt -b aa:bb:cc:dd:ee:ff /tmp/airportSniffxxxxxx.cap
-```
+5.当发现有握手包之后，接下来就是最激(man)动(de)人(yao)心(si)的破解阶段！在 aircrack-ng 程序中看到下图提示后输入握手包所在行数（就是#对应的那一列）
+
 ![截图6](https://raw.githubusercontent.com/ZoraZora59/Get_Wifi_Password_On_MacOS/master/Screenshots/S6.png)
+
+或者在终端中输入下列命令，开始对监听包进行密码破解（Hash值比对)。
+```shell
+sudo aircrack-ng -w password.txt -b 50:3A:A0:D2:8C:AE /tmp/airportSniffCrRc8p.cap
+```
+![截图7](https://raw.githubusercontent.com/ZoraZora59/Get_Wifi_Password_On_MacOS/master/Screenshots/S7.png)
 
 这一步默认是由CPU完成的，而CPU本身相对而言不擅长做这种单一的hash计算，擅长做这个的是GPU（原理同显卡挖矿）。可以通过工具将这一步交由GPU来完成，效率会高很多。（不过作者还在研究，做好了会更新的）
 
@@ -94,4 +98,4 @@ sudo aircrack-ng -w password.txt -b aa:bb:cc:dd:ee:ff /tmp/airportSniffxxxxxx.ca
 如果比对成功，程序会进入如下界面，`KEY FOUND ![*]`里面的‘*’就是密码.恭喜获得成功🎉
 ###（如果你觉得本项目有帮助，请给本项目一个Star，作者感激不尽！）
 
-![截图7](https://raw.githubusercontent.com/ZoraZora59/Get_Wifi_Password_On_MacOS/master/Screenshots/S7.png)
+![截图8](https://raw.githubusercontent.com/ZoraZora59/Get_Wifi_Password_On_MacOS/master/Screenshots/S8.png)
