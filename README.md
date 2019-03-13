@@ -89,7 +89,7 @@ sudo aircrack-ng -w ~/密码破解字典/crackstation-human-only.txt -b 50:3A:A0
 ```
 ![截图7](https://raw.githubusercontent.com/ZoraZora59/Get_Wifi_Password_On_MacOS/master/Screenshots/S7.png)
 
-这一步默认是由CPU完成的，而CPU本身相对而言不擅长做这种单一的hash计算，擅长做这个的是GPU（原理同显卡挖矿）。可以通过工具将这一步交由GPU来完成，效率会高很多。（不过作者还在研究，做好了会更新的）
+这一步默认是由CPU完成的，而CPU本身相对而言不擅长做这种单一的hash计算，擅长做这个的是GPU（原理同显卡挖矿）。可以通过工具将这一步交由GPU来完成，效率会高很多。（Elcomsoft Wireless Security Auditor简称EWSA，一个密码破解工具，支持显卡，N卡为主，而且还支持多核运算）
 
 6.Finally！密码Hash比对完毕/比对失败！
 
