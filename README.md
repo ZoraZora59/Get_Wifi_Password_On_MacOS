@@ -37,10 +37,12 @@ brew install aircrack-ng
 
 作者所用的密码字典是网上的前辈帖子发到帖子里的，当然可以用其他字典替换。
 
-[精简版字典 约700M](http://pan.baidu.com/s/1o7MCcHk) 
 
-[完善版字典 约15G](http://pan.baidu.com/s/1clxaCA)
+[~~精简版字典 约700M~~](http://pan.baidu.com/s/1o7MCcHk) 
 
+[~~完善版字典 约15G~~](http://pan.baidu.com/s/1clxaCA)
+
+上面的两个字典包已经过期，但是感谢 [@syhily](https://github.com/syhily)的帮助，我们现在有了新的地方来[获取字典](https://crackstation.net/crackstation-wordlist-password-cracking-dictionary.htm)。
 ## 开始！
 
 1.查看本机网卡信息。
